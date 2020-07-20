@@ -4,11 +4,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfApp1.View"
+             xmlns:model="clr-namespace:WpfApp1.Model"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     
     
-    <Grid>
-        <TextBlock Text="{Binding Path=ListeViewModel.SeciliKonut}"/>
-    </Grid>
+    <StackPanel>
+        <ContentControl Content="{Binding Path=ListViewModel.SeciliKonut}">
+            <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type model:Daire}">
+                    <TextBlock Text="{Binding Path=Alan}"/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type model:Villa}">
+                    <TextBlock Text="{Binding Path=Alan}"/>
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>
+        
+    </StackPanel>
 </UserControl>

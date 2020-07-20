@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Xml.Serialization;
 using WpfApp1.Model;
 
@@ -45,6 +46,7 @@ namespace WpfApp1.ViewModel
             set
             {
                 seciliKonut = value;
+                MessageBox.Show(value.ToString());
                 OnPropertyChanged("SeciliKonut");
             }
         }

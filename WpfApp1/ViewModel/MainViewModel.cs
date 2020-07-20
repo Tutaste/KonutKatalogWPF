@@ -19,8 +19,8 @@ namespace WpfApp1.ViewModel
 
         public MainViewModel()
         {
-            listeSayfasi = new Liste();
-            currentViewModel = listeSayfasi;
+            ListeSayfasi = new Liste();
+            CurrentViewModel = ListeSayfasi;
 
             detayGoster = new DetayGosterCommand(this);
         }
@@ -45,9 +45,19 @@ namespace WpfApp1.ViewModel
             }
         }
 
+        public Liste ListeSayfasi
+        {
+            get { return listeSayfasi; }
+            set
+            {
+                listeSayfasi = value;
+                OnPropertyChanged("ListeSayfasi");
+            }
+        }
+
         public void DetaySayfaAcma()
         {
-            CurrentViewModel = new Detay(listeSayfasi);
+            CurrentViewModel = new Detay(ListeSayfasi);
             
         }
 
