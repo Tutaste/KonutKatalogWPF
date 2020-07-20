@@ -8,6 +8,10 @@ namespace WpfApp1.Model
 {
     public class Villa : Konut
     {
-        public bool bahce { get; set; }
+        public int BahceAlani { get; set; }
+
+        public bool Garaj { get; set; } 
+
+        public bool VillaTipi { get; set; }
     }
 }
