@@ -12,6 +12,6 @@ namespace WpfApp1.Model
 
         public bool Garaj { get; set; } 
 
-        public bool VillaTipi { get; set; }
+        public string VillaTipi { get; set; }
     }
 }

@@ -5,9 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         xmlns:view="clr-namespace:WpfApp1.View"
+        xmlns:viewModel="clr-namespace:WpfApp1.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <view:Liste/>
-    </Grid>
+
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModel:Liste}">
+            <view:Liste/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:Detay}">
+            <view:Detay/>
+        </DataTemplate>
+    </Window.Resources>
+    
+    <StackPanel>
+        <ContentControl Content="{Binding Path=CurrentViewModel}"/>
+        <Button Content="Detay Sayfası" Command="{Binding Path=DetayGoster}"/>
+    </StackPanel>
 </Window>

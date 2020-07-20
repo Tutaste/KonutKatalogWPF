@@ -13,13 +13,14 @@
     </UserControl.DataContext>
     
     <StackPanel>
-        <ListBox ItemsSource="{Binding Path=Konutlar}">
+        <ListBox ItemsSource="{Binding Path=Konutlar}" SelectedItem="{Binding Path=SeciliKonut, Mode=TwoWay}">
             <ListBox.ItemTemplate>
                 <DataTemplate DataType="{x:Type viewModel:Liste}">
                     <TextBlock Text="{Binding Path=Fiyat}"></TextBlock>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-            
+        <TextBlock Text="{Binding SeciliKonut}"/>
+
     </StackPanel>
 </UserControl>
