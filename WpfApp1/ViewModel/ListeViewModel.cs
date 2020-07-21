@@ -5,29 +5,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 using System.Xml.Serialization;
-using WpfApp1.Model;
+using KonutModelLib;
+using WpfApp1.Command;
 
 namespace WpfApp1.ViewModel
 {
-    public class Liste : BaseViewModel
+    public class ListeViewModel : BaseViewModel
     {
-        private XmlSerializer serializer;
-        private FileStream file;
         private List<Konut> konutlar = new List<Konut>();
-        private Type[] types = { typeof(Daire), typeof(Villa)};
         private Konut seciliKonut;
+        private ICommand detayGoster;
+        private MainViewModel mainViewModel;
 
-        public Liste()
+        public ListeViewModel(MainViewModel mainvm)
         {
 
             //konutlar.Add(new Daire() { Alan = 100, Fiyat = 500, Asansor = true, Balkon = true, Kat = 4}) ;
             //konutlar.Add(new Villa() { Alan = 200, Fiyat = 250, BahceAlani = 200, Garaj = false, VillaTipi = "Dublex"});
             //konutlar.Add(new Daire() { Alan = 600, Fiyat = 900, Asansor = false, Balkon = true, Kat = 3 });
             //konutlar.Add(new Villa() { Alan = 700, Fiyat = 400, BahceAlani = 250, Garaj = true, VillaTipi = "Triplex"});
-            serializer = new XmlSerializer(typeof(List<Konut>), types);
-            file = File.Open(@".\Konutlar.xml", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite);
-            ReadXML();
+
+            this.mainViewModel = mainvm;
+            detayGoster = new DetayGosterCommand(mainViewModel);
         }
 
         public List<Konut> Konutlar
@@ -46,20 +47,19 @@ namespace WpfApp1.ViewModel
             set
             {
                 seciliKonut = value;
-                MessageBox.Show(value.ToString());
                 OnPropertyChanged("SeciliKonut");
             }
         }
 
-
-        public void ReadXML()
+        public ICommand DetayGoster
         {
-            konutlar = (List<Konut>)serializer.Deserialize(file);
+            get { return detayGoster; }
+            set
+            {
+                detayGoster = value;
+            }
         }
 
-        public void WriteXML()
-        {
-            serializer.Serialize(file, konutlar);
-        }
+        public MainViewModel MainViewModel { get => mainViewModel; set => mainViewModel = value; }
     }
 }

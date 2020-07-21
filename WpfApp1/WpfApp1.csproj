@@ -56,10 +56,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Command\DetayGosterCommand.cs" />
-    <Compile Include="Model\Villa.cs" />
+    <Compile Include="Command\ListeGosterCommand.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
-    <Compile Include="ViewModel\Detay.cs" />
-    <Compile Include="ViewModel\Liste.cs" />
+    <Compile Include="ViewModel\DetayViewModel.cs" />
+    <Compile Include="ViewModel\ListeViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="View\Detay.xaml.cs">
       <DependentUpon>Detay.xaml</DependentUpon>
@@ -89,8 +89,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Daire.cs" />
-    <Compile Include="Model\Konut.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -115,6 +113,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KonutModelLib\KonutModelLib.csproj">
+      <Project>{d7e6e998-7120-4f7f-afc4-99ae64ed01b7}</Project>
+      <Name>KonutModelLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

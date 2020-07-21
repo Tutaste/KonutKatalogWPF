@@ -14,16 +14,16 @@
     </Window.DataContext>
 
     <Window.Resources>
-        <DataTemplate DataType="{x:Type viewModel:Liste}">
+        <DataTemplate DataType="{x:Type viewModel:ListeViewModel}">
             <view:Liste/>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewModel:Detay}">
+        <DataTemplate DataType="{x:Type viewModel:DetayViewModel}">
             <view:Detay/>
         </DataTemplate>
     </Window.Resources>
     
     <StackPanel>
         <ContentControl Content="{Binding Path=CurrentViewModel}"/>
-        <Button Content="Detay Sayfası" Command="{Binding Path=DetayGoster}"/>
+        
     </StackPanel>
 </Window>

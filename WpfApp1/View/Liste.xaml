@@ -8,19 +8,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <UserControl.DataContext>
-        <viewModel:Liste/>
-    </UserControl.DataContext>
     
     <StackPanel>
-        <ListBox ItemsSource="{Binding Path=Konutlar}" SelectedItem="{Binding Path=SeciliKonut, Mode=TwoWay}">
+        <ListBox ItemsSource="{Binding Path=MainViewModel.Konutlar}" SelectedItem="{Binding Path=SeciliKonut, Mode=TwoWay}">
             <ListBox.ItemTemplate>
-                <DataTemplate DataType="{x:Type viewModel:Liste}">
+                <DataTemplate DataType="{x:Type viewModel:ListeViewModel}">
                     <TextBlock Text="{Binding Path=Fiyat}"></TextBlock>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
         <TextBlock Text="{Binding SeciliKonut}"/>
-
+        <Button Content="Detay Sayfası" Command="{Binding Path=DetayGoster}"/>
     </StackPanel>
 </UserControl>
