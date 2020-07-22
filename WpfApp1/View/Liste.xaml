@@ -9,7 +9,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <StackPanel>
+    <StackPanel Margin="20,20">
         <!--<ListBox ItemsSource="{Binding Path=Konutlar}" SelectedItem="{Binding Path=SeciliKonut, Mode=TwoWay}">
             <ListBox.ItemTemplate>
                 <DataTemplate DataType="{x:Type viewModel:ListeViewModel}">
@@ -17,27 +17,32 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>-->
-        <ListView ItemsSource="{Binding Path=Konutlar}" SelectedItem="{Binding Path=SeciliKonut, Mode=TwoWay}">
+        <ListView x:Name="KonutListView" ItemsSource="{Binding Path=Konutlar}" SelectedItem="{Binding Path=SeciliKonut, Mode=TwoWay}">
             <ListView.Resources>
                 <DataTemplate DataType="{x:Type model:Daire}">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Daire"/>
-                        <TextBlock Text="{Binding Path=Alan, StringFormat=' {0} m&#x00B2; alan.'}"></TextBlock>
-                        <TextBlock Text="{Binding Path=Fiyat, StringFormat= ' {0} ₺'}"></TextBlock>
-                        <CheckBox Content="Favori" IsChecked="{Binding Path=Favori}"/>
+                        <TextBlock Width="100" Text="Daire"/>
+                        <TextBlock Width="100" Text="{Binding Path=Alan, StringFormat=' {0} m&#x00B2; alan.'}"></TextBlock>
+                        <TextBlock Width="100" Text="{Binding Path=Fiyat, StringFormat= ' {0} ₺'}"></TextBlock>
+                        <CheckBox Width="100" IsChecked="{Binding Path=Favori}"/>
                     </StackPanel>
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type model:Villa}">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Villa"/>
-                        <TextBlock Text="{Binding Path=Alan, StringFormat=' {0} m&#x00B2; alan.'}"></TextBlock>
-                        <TextBlock Text="{Binding Path=Fiyat, StringFormat= ' {0} ₺'}"></TextBlock>
-                        <CheckBox Content="Favori" IsChecked="{Binding Path=Favori}"/>
+                        <TextBlock Width="100" Text="Villa"/>
+                        <TextBlock Width="100" Text="{Binding Path=Alan, StringFormat=' {0} m&#x00B2; alan.'}"></TextBlock>
+                        <TextBlock Width="100" Text="{Binding Path=Fiyat, StringFormat= ' {0} ₺'}"></TextBlock>
+                        <CheckBox Width="100" IsChecked="{Binding Path=Favori}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.Resources>
         </ListView>
-        <Button Content="Detay Sayfası" Command="{Binding Path=DetayGoster}"/>
-        <Button Content="Kaydet" Command="{Binding Path=FavoriKaydet}"/>
+        <StackPanel Margin="20,20" Orientation="Horizontal">
+            <Button Style="{StaticResource BackButtonStyle}" Content="Detay Sayfası" Command="{Binding Path=DetayGoster}"/>
+            <Button Style="{StaticResource BackButtonStyle}" Content="Kaydet" Command="{Binding Path=FavoriKaydet}"/>
+        </StackPanel>
+
+        <TextBlock Text="{Binding Path=IndexBulma}"></TextBlock>
+
     </StackPanel>
 </UserControl>
