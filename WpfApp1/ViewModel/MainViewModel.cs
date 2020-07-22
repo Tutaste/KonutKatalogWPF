@@ -16,32 +16,48 @@ namespace WpfApp1.ViewModel
 {
     public class MainViewModel : BaseViewModel
     {
-        private BaseViewModel currentViewModel;
-        private ListeViewModel listeSayfasi;
-        
+        private const string FilePath = @".\Konutlar.xml";
 
-        private XmlSerializer serializer;
-        private FileStream file;
-        private List<Konut> konutlar = new List<Konut>();
+        private Konut seciliKonut;
+        private BaseViewModel currentViewModel;
+
         private Type[] types = { typeof(Daire), typeof(Villa) };
+
+        private ListeViewModel listeSayfasi;
+        private DetayViewModel detaySayfasi;
 
         public MainViewModel()
         {
-            serializer = new XmlSerializer(typeof(List<Konut>), types);
-            file = File.Open(@".\Konutlar.xml", FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite);
-            ListeSayfasi = new ListeViewModel(this);
-            CurrentViewModel = ListeSayfasi;
+            Konutlar = new List<Konut>();
+            //Konutlar.Add(new Daire() { Alan = 100, Fiyat = 500, Asansor = true, Balkon = true, Kat = 4, Favori = true });
+            //Konutlar.Add(new Villa() { Alan = 200, Fiyat = 250, BahceAlani = 200, Garaj = false, VillaTipi = "Dublex", Favori = false });
+            //Konutlar.Add(new Daire() { Alan = 600, Fiyat = 900, Asansor = false, Balkon = true, Kat = 3, Favori = true });
+            //Konutlar.Add(new Villa() { Alan = 700, Fiyat = 400, BahceAlani = 250, Garaj = true, VillaTipi = "Triplex", Favori = true });
 
+            listeSayfasi = new ListeViewModel(this);
+            detaySayfasi = new DetayViewModel(this);
+            CurrentViewModel = listeSayfasi;
+
+            WriteXML();
             ReadXML();
         }
 
         public List<Konut> Konutlar
         {
-            get { return konutlar; }
+            get;
+            set;
+        }
+
+        public Konut SeciliKonut
+        {
+            get
+            {
+                return seciliKonut;
+            }
             set
             {
-                konutlar = value;
-                OnPropertyChanged("Konutlar");
+                seciliKonut = value;
+                OnPropertyChanged(nameof(SeciliKonut));
             }
         }
 
@@ -51,39 +67,48 @@ namespace WpfApp1.ViewModel
             set
             {
                 currentViewModel = value;
-                OnPropertyChanged("CurrentViewModel");
-            }
-        }
-
-
-        public ListeViewModel ListeSayfasi
-        {
-            get { return listeSayfasi; }
-            set
-            {
-                listeSayfasi = value;
-                OnPropertyChanged("ListeSayfasi");
+                OnPropertyChanged(nameof(CurrentViewModel));
             }
         }
 
         public void DetaySayfaAcma()
         {
-            CurrentViewModel = new DetayViewModel(ListeSayfasi);
+            CurrentViewModel = detaySayfasi;
         }
 
         public void ListeSayfasiAcma()
         {
-            CurrentViewModel = ListeSayfasi;
+            CurrentViewModel = listeSayfasi;
         }
 
-        public void ReadXML()
+        private void ReadXML()
         {
-            konutlar = (List<Konut>)serializer.Deserialize(file);
+            if (File.Exists(FilePath))
+            {
+                using (var file = GetFileStream())
+                {
+                    var serializer = new XmlSerializer(typeof(List<Konut>), types);
+                    Konutlar = serializer.Deserialize(file) as List<Konut>;
+                }
+            }
+            else
+            {
+                WriteXML();
+            }
         }
 
         public void WriteXML()
         {
-            serializer.Serialize(file, konutlar);
+            using (var file = GetFileStream())
+            {
+                var serializer = new XmlSerializer(typeof(List<Konut>), types);
+                serializer.Serialize(file, Konutlar);
+            }
+        }
+
+        private FileStream GetFileStream()
+        {
+            return File.Open(FilePath, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite);
         }
 
     }

@@ -7,20 +7,26 @@
              xmlns:model="clr-namespace:KonutModelLib;assembly=KonutModelLib"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    
-    
+
+
     <StackPanel>
-        <ContentControl Content="{Binding Path=ListViewModel.SeciliKonut}">
+        <ContentControl Content="{Binding Path=SeciliKonut}">
             <ContentControl.Resources>
                 <DataTemplate DataType="{x:Type model:Daire}">
-                    <TextBlock Text="{Binding Path=Alan}"/>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Path=Fiyat}"/>
+                        <CheckBox Content="Favori" IsChecked="{Binding Path=Favori}"/>
+                    </StackPanel>
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type model:Villa}">
-                    <TextBlock Text="{Binding Path=Alan}"/>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Path=Fiyat}"/>
+                        <CheckBox Content="Favori" IsChecked="{Binding Path=Favori}"/>
+                    </StackPanel>
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>
-        <TextBlock Text="aycan"/>
+
         <Button Command="{Binding Path=ListeGoster}">Liste Sayfasına Git</Button>
     </StackPanel>
 </UserControl>

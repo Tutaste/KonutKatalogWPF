@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KonutModelLib;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,24 +11,24 @@ namespace WpfApp1.ViewModel
 {
     public class DetayViewModel : BaseViewModel
     {
-        private ListeViewModel listeViewModel;
+        private MainViewModel mainViewModel;
         private ICommand listeGoster;
 
-        public DetayViewModel(ListeViewModel listevm)
+        public Konut SeciliKonut
         {
-            this.listeViewModel = listevm;
-
-            listeGoster = new ListeGosterCommand(listevm.MainViewModel);
-        }
-
-        public ListeViewModel ListeViewModel 
-        {
-            get { return listeViewModel; }
+            get { return mainViewModel.SeciliKonut; }
             set
             {
-                listeViewModel = value;
-                OnPropertyChanged("ListeViewModel");
+                mainViewModel.SeciliKonut = value;
+                OnPropertyChanged(nameof(SeciliKonut));
             }
+        }
+
+        public DetayViewModel(MainViewModel mainViewModel)
+        {
+            this.mainViewModel = mainViewModel;
+
+            listeGoster = new ListeGosterCommand(mainViewModel);
         }
 
         public ICommand ListeGoster

@@ -9,5 +9,7 @@ namespace KonutModelLib
         public int Alan { get; set; }
 
         public int Fiyat { get; set; }
+
+        public bool Favori { get; set; }
     }
 }
