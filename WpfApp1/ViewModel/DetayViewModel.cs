@@ -13,6 +13,7 @@ namespace WpfApp1.ViewModel
     {
         private MainViewModel mainViewModel;
         private ICommand listeGoster;
+        
 
         public Konut SeciliKonut
         {
@@ -29,12 +30,18 @@ namespace WpfApp1.ViewModel
             this.mainViewModel = mainViewModel;
 
             listeGoster = new ListeGosterCommand(mainViewModel);
+            DetayDegistir = new DetayDegistirCommand(mainViewModel);
         }
 
         public ICommand ListeGoster
         {
             get { return listeGoster; }
             set { listeGoster = value; }
+        }
+
+        public ICommand DetayDegistir
+        {
+            get; set;
         }
 
     }

@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="Command\DetayGosterCommand.cs" />
     <Compile Include="Command\FavoriKaydetCommand.cs" />
+    <Compile Include="Command\DetayDegistirCommand.cs" />
     <Compile Include="Command\ListeGosterCommand.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\DetayViewModel.cs" />
