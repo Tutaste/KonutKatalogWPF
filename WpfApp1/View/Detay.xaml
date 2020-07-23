@@ -37,8 +37,8 @@
                         <TextBlock Grid.Column="0" Grid.Row="4" Style="{StaticResource textBlockStyle}" Text="Asansör: "/>
                         <TextBlock Grid.Column="0" Grid.Row="5" Style="{StaticResource textBlockStyle}" Text="Favori: "/>
 
-                        <TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource textBlockStyle}" Text="{Binding Path=Alan, StringFormat=' {0} m&#x00B2;' }"/>
-                        <TextBlock Grid.Column="1" Grid.Row="1" Style="{StaticResource textBlockStyle}" Text="{Binding Path=Fiyat, StringFormat=' {0} ₺' }"/>
+                        <TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource textBlockStyle}" Text="{Binding Path=Alan, StringFormat='{}{0} m&#x00B2;' }"/>
+                        <TextBlock Grid.Column="1" Grid.Row="1" Style="{StaticResource textBlockStyle}" Text="{Binding Path=Fiyat, StringFormat='{}{0} ₺' }"/>
                         <TextBlock Grid.Column="1" Grid.Row="2" Style="{StaticResource textBlockStyle}" Text="{Binding Path=Kat}"/>
                         <TextBlock Grid.Column="1" Grid.Row="3" Style="{StaticResource textBlockStyle}" Text="{Binding Path=Balkon}"/>
                         <TextBlock Grid.Column="1" Grid.Row="4" Style="{StaticResource textBlockStyle}" Text="{Binding Path=Asansor}"/>
@@ -76,8 +76,8 @@
                         <TextBlock Grid.Column="0" Grid.Row="4" Style="{StaticResource textBlockStyle}" Text="Villa Tipi: "/>
                         <TextBlock Grid.Column="0" Grid.Row="5" Style="{StaticResource textBlockStyle}" Text="Favori: "/>
 
-                        <TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource textBlockStyle}" Text="{Binding Path=Alan, StringFormat=' {0} m&#x00B2;' }"/>
-                        <TextBlock Grid.Column="1" Grid.Row="1" Style="{StaticResource textBlockStyle}" Text="{Binding Path=Fiyat, StringFormat=' {0} ₺' }"/>
+                        <TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource textBlockStyle}" Text="{Binding Path=Alan, StringFormat='{}{0} m&#x00B2;' }"/>
+                        <TextBlock Grid.Column="1" Grid.Row="1" Style="{StaticResource textBlockStyle}" Text="{Binding Path=Fiyat, StringFormat='{}{0} ₺' }"/>
                         <TextBlock Grid.Column="1" Grid.Row="2" Style="{StaticResource textBlockStyle}" Text="{Binding Path=BahceAlani}"/>
                         <TextBlock Grid.Column="1" Grid.Row="3" Style="{StaticResource textBlockStyle}" Text="{Binding Path=Garaj}"/>
                         <TextBlock Grid.Column="1" Grid.Row="4" Style="{StaticResource textBlockStyle}" Text="{Binding Path=VillaTipi}"/>

@@ -5,9 +5,9 @@ namespace KonutModelLib
     {
         public int Kat { get; set; }
 
-        public bool Balkon { get; set; }
+        public Ozellik Balkon { get; set; }
 
-        public bool Asansor { get; set; }
+        public Ozellik Asansor { get; set; }
 
     }
 }

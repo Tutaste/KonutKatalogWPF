@@ -31,10 +31,10 @@ namespace WpfApp1.ViewModel
         public MainViewModel()
         {
             Konutlar = new List<Konut>();
-            //Konutlar.Add(new Daire() { Alan = 100, Fiyat = 500, Asansor = true, Balkon = true, Kat = 4, Favori = true });
-            //Konutlar.Add(new Villa() { Alan = 200, Fiyat = 250, BahceAlani = 200, Garaj = false, VillaTipi = "dublex", Favori = false });
-            //Konutlar.Add(new Daire() { Alan = 600, Fiyat = 900, Asansor = false, Balkon = true, Kat = 3, Favori = true });
-            //Konutlar.Add(new Villa() { Alan = 700, Fiyat = 400, BahceAlani = 250, Garaj = true, VillaTipi = "triplex", Favori = true });
+            //Konutlar.Add(new Daire() { Alan = 100, Fiyat = 500, Asansor = Ozellik.Var, Balkon = Ozellik.Var, Kat = 4, Favori = true });
+            //Konutlar.Add(new Villa() { Alan = 200, Fiyat = 250, BahceAlani = 200, Garaj = Ozellik.Yok, VillaTipi = VillaTipi.Dublex, Favori = false });
+            //Konutlar.Add(new Daire() { Alan = 600, Fiyat = 900, Asansor = Ozellik.Yok, Balkon = Ozellik.Var, Kat = 3, Favori = true });
+            //Konutlar.Add(new Villa() { Alan = 700, Fiyat = 400, BahceAlani = 250, Garaj = Ozellik.Var, VillaTipi = VillaTipi.Triplex, Favori = true });
 
             listeSayfasi = new ListeViewModel(this);
             //detaySayfasi = new DetayViewModel(this);

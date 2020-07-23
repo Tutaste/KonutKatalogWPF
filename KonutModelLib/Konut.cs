@@ -3,6 +3,11 @@ using System.Xml.Serialization;
 
 namespace KonutModelLib
 {
+    public enum Ozellik
+    {
+        Yok,
+        Var
+    }
 
     public abstract class Konut
     {

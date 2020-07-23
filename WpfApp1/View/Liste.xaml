@@ -24,16 +24,16 @@
                 <DataTemplate DataType="{x:Type model:Daire}">  
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Width="100" Text="Daire"/>
-                        <TextBlock Width="100" Text="{Binding Path=Alan, StringFormat=' {0} m&#x00B2; alan.'}"></TextBlock>
-                        <TextBlock Width="100" Text="{Binding Path=Fiyat, StringFormat= ' {0} ₺'}"></TextBlock>
+                        <TextBlock Width="100" Text="{Binding Path=Alan, StringFormat='{}{0} m&#x00B2;'}"></TextBlock>
+                        <TextBlock Width="100" Text="{Binding Path=Fiyat, StringFormat='{}{0} ₺'}"></TextBlock>
                         <CheckBox Width="100" IsChecked="{Binding Path=Favori}"/>
                     </StackPanel>
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type model:Villa}">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Width="100" Text="Villa"/>
-                        <TextBlock Width="100" Text="{Binding Path=Alan, StringFormat=' {0} m&#x00B2; alan.'}"></TextBlock>
-                        <TextBlock Width="100" Text="{Binding Path=Fiyat, StringFormat= ' {0} ₺'}"></TextBlock>
+                        <TextBlock Width="100" Text="{Binding Path=Alan, StringFormat='{}{0} m&#x00B2;'}"></TextBlock>
+                        <TextBlock Width="100" Text="{Binding Path=Fiyat, StringFormat='{}{0} ₺'}"></TextBlock>
                         <CheckBox Width="100" IsChecked="{Binding Path=Favori}"/>
                     </StackPanel>
                 </DataTemplate>
