@@ -20,11 +20,13 @@ namespace WpfApp1.ViewModel
 
         private Konut seciliKonut;
         private BaseViewModel currentViewModel;
+        
 
         private Type[] types = { typeof(Daire), typeof(Villa) };
 
         private ListeViewModel listeSayfasi;
         private DetayViewModel detaySayfasi;
+        private List<Konut> konutlar;
 
         public MainViewModel()
         {
@@ -35,7 +37,7 @@ namespace WpfApp1.ViewModel
             //Konutlar.Add(new Villa() { Alan = 700, Fiyat = 400, BahceAlani = 250, Garaj = true, VillaTipi = "triplex", Favori = true });
 
             listeSayfasi = new ListeViewModel(this);
-            detaySayfasi = new DetayViewModel(this);
+            //detaySayfasi = new DetayViewModel(this);
             CurrentViewModel = listeSayfasi;
 
             //WriteXML();
@@ -44,8 +46,15 @@ namespace WpfApp1.ViewModel
 
         public List<Konut> Konutlar
         {
-            get;
-            set;
+            get
+            {
+                return konutlar;
+            }
+            set 
+            {
+                konutlar = value;
+                OnPropertyChanged(nameof(Konutlar));
+            }
         }
 
         public Konut SeciliKonut
@@ -73,7 +82,7 @@ namespace WpfApp1.ViewModel
 
         public void DetaySayfaAcma()
         {
-            CurrentViewModel = detaySayfasi;
+            CurrentViewModel = new DetayViewModel(this);
         }
 
         public void ListeSayfasiAcma()

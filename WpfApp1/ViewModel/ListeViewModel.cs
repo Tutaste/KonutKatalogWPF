@@ -14,14 +14,14 @@ namespace WpfApp1.ViewModel
 {
     public class ListeViewModel : BaseViewModel
     {
-        private ICommand detayGoster;
+        
         private MainViewModel mainViewModel;
         private ICommand favoriKaydet;
 
         public ListeViewModel(MainViewModel mainvm)
         {
             this.mainViewModel = mainvm;
-            detayGoster = new DetayGosterCommand(mainViewModel);
+            DetayGoster = new DetayGosterCommand(mainViewModel);
             favoriKaydet = new FavoriKaydetCommand(mainViewModel);
         }
 
@@ -45,11 +45,8 @@ namespace WpfApp1.ViewModel
 
         public ICommand DetayGoster
         {
-            get { return detayGoster; }
-            set
-            {
-                detayGoster = value;
-            }
+            get;
+            set;
         }
 
         public ICommand FavoriKaydet
@@ -61,6 +58,6 @@ namespace WpfApp1.ViewModel
             }
         }
 
-        public MainViewModel MainViewModel { get => mainViewModel; set => mainViewModel = value; }
+        //public MainViewModel MainViewModel { get => mainViewModel; set => mainViewModel = value; }
     }
 }

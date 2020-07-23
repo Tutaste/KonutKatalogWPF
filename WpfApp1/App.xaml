@@ -34,14 +34,14 @@
             <Setter Property="FontSize" Value="13" />
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Width" Value="180"/>
-            <Setter Property="Margin" Value="0,22" />
+            <Setter Property="Margin" Value="20,20" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border
                         Padding="9"
                         Background="White"
-                        BorderBrush="#FFF7F7F7"
+                        BorderBrush="#FF636363"
                         BorderThickness="1"
                         CornerRadius="0">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
@@ -55,6 +55,11 @@
                             <Trigger Property="IsPressed" Value="True">
                                 <Setter Property="Background" Value="#FFE8E8E8" />
                                 <Setter Property="Foreground" Value="Black" />
+                            </Trigger>
+
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" Value="#FFC1C1C1" />
+                                <Setter Property="Foreground" Value="#FFC1C1C1" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>

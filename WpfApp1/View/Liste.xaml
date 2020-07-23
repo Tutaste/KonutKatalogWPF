@@ -21,7 +21,7 @@
         
         <ListView x:Name="KonutListView" ItemsSource="{Binding Path=Konutlar}" SelectedItem="{Binding Path=SeciliKonut, Mode=TwoWay}">
             <ListView.Resources>
-                <DataTemplate DataType="{x:Type model:Daire}">
+                <DataTemplate DataType="{x:Type model:Daire}">  
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Width="100" Text="Daire"/>
                         <TextBlock Width="100" Text="{Binding Path=Alan, StringFormat=' {0} m&#x00B2; alan.'}"></TextBlock>
@@ -40,11 +40,9 @@
             </ListView.Resources>
         </ListView>
         <StackPanel Margin="20,20" Orientation="Horizontal">
-            <Button Style="{StaticResource BackButtonStyle}" Content="Detay Sayfası" Command="{Binding Path=DetayGoster}"/>
             <Button Style="{StaticResource BackButtonStyle}" Content="Kaydet" Command="{Binding Path=FavoriKaydet}"/>
+            <Button Style="{StaticResource BackButtonStyle}" Content="Detay Sayfası" Command="{Binding Path=DetayGoster}"/>
         </StackPanel>
-
-        <TextBlock Text="{Binding Path=IndexBulma}"></TextBlock>
-
+        
     </StackPanel>
 </UserControl>

@@ -50,7 +50,6 @@ namespace WpfApp1.Command
             }
             
             viewModel.SeciliKonut = viewModel.Konutlar[index];
-            MessageBox.Show(viewModel.SeciliKonut.Alan.ToString());
         }
     }
 }

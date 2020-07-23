@@ -26,7 +26,15 @@ namespace WpfApp1.Command
 
         public bool CanExecute(object parameter)
         {
-            return true;
+            if (mainViewModel.SeciliKonut == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+            
         }
 
         public void Execute(object parameter)

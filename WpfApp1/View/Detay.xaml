@@ -9,17 +9,17 @@
              d:DesignHeight="450" d:DesignWidth="800">
 
 
-    <StackPanel Margin="20,20">
+    <StackPanel Margin="20,20" HorizontalAlignment="Center">
 
-        <Label Content="Detaylı Konut Bilgisi" Style="{StaticResource labelStyle}"></Label>
+        <Label Content="Detaylı Konut Bilgisi" Style="{StaticResource labelStyle}" HorizontalAlignment="Center"></Label>
 
-        <ContentControl Content="{Binding Path=SeciliKonut}">
+        <ContentControl Content="{Binding Path=MainViewModel.SeciliKonut}">
             <ContentControl.Resources>
                 <DataTemplate DataType="{x:Type model:Daire}">
-                    <Grid>
+                    <Grid Width="300" HorizontalAlignment="Center">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="120" />
-                            <ColumnDefinition Width="250"/>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="150"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
@@ -55,10 +55,10 @@
                     </StackPanel>-->
                 </DataTemplate>
                 <DataTemplate DataType="{x:Type model:Villa}">
-                    <Grid>
+                    <Grid Width="300" HorizontalAlignment="Center">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="120" />
-                            <ColumnDefinition Width="250"/>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="150"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
@@ -98,7 +98,7 @@
             </ContentControl.Resources>
         </ContentControl>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
             <Button Style="{StaticResource BackButtonStyle}" Command="{Binding Path=DetayDegistir}" CommandParameter="-1">Geri</Button>
             <Button Style="{StaticResource BackButtonStyle}" Command="{Binding Path=ListeGoster}">Liste Sayfasına Git</Button>
             <Button Style="{StaticResource BackButtonStyle}" Command="{Binding Path=DetayDegistir}" CommandParameter="1">İleri</Button>

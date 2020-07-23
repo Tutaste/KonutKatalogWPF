@@ -33,6 +33,11 @@ namespace WpfApp1.ViewModel
             DetayDegistir = new DetayDegistirCommand(mainViewModel);
         }
 
+        public MainViewModel MainViewModel
+        {
+            get { return mainViewModel; }
+        }
+
         public ICommand ListeGoster
         {
             get { return listeGoster; }
