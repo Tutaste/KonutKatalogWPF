@@ -24,9 +24,22 @@
             <Setter Property="FontFamily" Value="Times New Roman"></Setter>
             <Setter Property="FontWeight" Value="Bold"></Setter>
             <Setter Property="Margin" Value="0,0,0,18"></Setter>
-            <Setter Property="Foreground" Value="#1a0000"></Setter>
+            <Setter Property="Foreground" Value="#FF403154"></Setter>
         </Style>
-
+        
+        <!--Label2 -->
+        <Style x:Key="labelStyleTwo" TargetType="{x:Type Label}">
+            <Setter Property="VerticalAlignment" Value="Top"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="FontFamily" Value="Trebuchet MS"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="FontFamily" Value="Times New Roman"></Setter>
+            <Setter Property="FontStyle" Value="Italic"></Setter>
+            <Setter Property="Margin" Value="0,0,0,18"></Setter>
+            <Setter Property="Foreground" Value="#FF403154"></Setter>
+        </Style>
+        
         <!-- BackButton style-->
         <Style x:Key="BackButtonStyle" TargetType="{x:Type Button}">
             <Setter Property="Background" Value="#FFF7F7F7" />
@@ -66,5 +79,80 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        
+        <!--CheckBox Style-->
+        <Style x:Key="CustomCheckBox" TargetType="{x:Type CheckBox}">
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="FontSize" Value="14" />
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                        <StackPanel Orientation="Horizontal">
+                            <Path x:Name="MyPin" Width="18" Height="18" Stretch="Fill" Fill="#FF403154"
+                              Data="m 1.1576066,296.39138 c -0.0232,-0.008 -0.03698,-0.0232 -0.046731,-0.0505 -0.00407,-0.0114 -0.00478,-0.0173 -0.00472,-0.0404 7.07e-5,-0.0259 0.0032,-0.0452 0.082641,-0.50568 0.045411,-0.26326 0.082566,-0.48048 0.082566,-0.48273 0,-0.002 -0.1189347,-0.11978 -0.3489565,-0.34354 -0.19192586,-0.18669 -0.35184274,-0.34297 -0.35537034,-0.34727 -0.0120479,-0.0148 -0.0239269,-0.0336 -0.0294517,-0.0467 -0.004547,-0.0108 -0.005538,-0.0164 -0.00563,-0.0319 -9.984e-5,-0.0171 4.8642e-4,-0.0199 0.006738,-0.0326 0.004117,-0.008 0.0103224,-0.0169 0.0156014,-0.0214 0.0144877,-0.0125 0.0393286,-0.0234 0.0659596,-0.029 0.0131564,-0.003 0.23733914,-0.036 0.49818194,-0.0738 0.2608423,-0.0378 0.4749698,-0.0695 0.4758383,-0.0704 8.701e-4,-7.4e-4 0.099751,-0.20007 0.2197377,-0.44268 0.1199872,-0.24261 0.2216349,-0.44654 0.2258839,-0.45318 0.011415,-0.0179 0.027224,-0.0326 0.043559,-0.0406 0.012969,-0.007 0.016029,-0.007 0.032245,-0.007 0.026891,7e-5 0.038456,0.005 0.059766,0.0267 0.020381,0.0206 -0.00547,-0.0299 0.2654163,0.518 0.1085928,0.21965 0.1976175,0.39952 0.1978325,0.3997 2.156e-4,1.9e-4 0.204461,0.03 0.4538789,0.0662 0.5393834,0.0783 0.5174801,0.075 0.5386032,0.0816 0.03323,0.0103 0.05436,0.0264 0.064718,0.0491 0.00441,0.01 0.00548,0.0151 0.00548,0.0282 0,0.028 -0.011037,0.051 -0.039445,0.0824 -0.0088,0.01 -0.1522119,0.15031 -0.3186812,0.31238 -0.1664693,0.16206 -0.3206794,0.31249 -0.342689,0.33429 l -0.040019,0.0396 0.082421,0.47756 c 0.080805,0.46819 0.082424,0.47814 0.082598,0.50669 2.453e-4,0.0403 -0.00579,0.0598 -0.024926,0.0802 -0.014449,0.0155 -0.026151,0.0197 -0.053818,0.0196 -0.019388,-7e-5 -0.025371,-7.4e-4 -0.039166,-0.006 -0.00939,-0.003 -0.1969097,-0.1006 -0.4430864,-0.23001 -0.234742,-0.12339 -0.4316873,-0.22681 -0.4376562,-0.22982 l -0.010852,-0.005 -0.4228731,0.22229 c -0.4764562,0.25047 -0.4490843,0.23626 -0.468637,0.24314 -0.020146,0.007 -0.051637,0.008 -0.066953,0.003 z"/>
+
+                            <ContentPresenter VerticalAlignment="Center" Margin="10,10" />
+                        </StackPanel>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter TargetName="MyPin" Property="Fill" Value="#FFF1F1F1" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <!--Right Button Style-->
+        <Style x:Key="RigthButton" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#FFF7F7F7" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Margin" Value="20,20" />
+            
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal">
+                            <Path Width="14" Height="18" Stretch="Fill" Fill="#FF403154"
+                                  Data="m 1.213683,296.41355 -0.31081695,-0.30409 0.61188565,-0.61307 0.6118855,-0.61307 -0.6118855,-0.61308 -0.61188565,-0.61307 0.31081695,-0.30409 0.3108176,-0.3041 0.861356,0.86745 c 0.4737458,0.47709 0.8800883,0.88982 0.9029832,0.91716 l 0.041627,0.0497 -0.041627,0.0497 c -0.022895,0.0273 -0.4292374,0.44007 -0.9029832,0.91716 l -0.861356,0.86745 z"/>
+
+                            <ContentPresenter HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10,10" />
+                        </StackPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <!--Left Button Style-->
+        <Style x:Key="LeftButton" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#FFF7F7F7" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Margin" Value="20,20" />
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <Path Width="14" Height="18" Stretch="Fill" Fill="#FF403154"
+                                  Data="m 3.0196499,296.41355 0.3108169,-0.30409 -0.6118856,-0.61307 -0.6118855,-0.61307 0.6118855,-0.61308 0.6118856,-0.61307 -0.3108169,-0.30409 -0.3108176,-0.3041 -0.861356,0.86745 c -0.4737458,0.47709 -0.88008835,0.88982 -0.90298325,0.91716 l -0.041627,0.0497 0.041627,0.0497 c 0.022895,0.0273 0.42923745,0.44007 0.90298325,0.91716 l 0.861356,0.86745 z"/>
+
+                            <ContentPresenter VerticalAlignment="Center" Margin="10,10" />
+                        </StackPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+
+
     </Application.Resources>
 </Application>

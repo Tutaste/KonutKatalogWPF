@@ -22,7 +22,7 @@ namespace WpfApp1.ViewModel
         private BaseViewModel currentViewModel;
         
 
-        private Type[] types = { typeof(Daire), typeof(Villa) };
+        private Type[] types = { typeof(Daire), typeof(Villa), typeof(Konut) };
 
         private ListeViewModel listeSayfasi;
         private DetayViewModel detaySayfasi;
@@ -31,13 +31,13 @@ namespace WpfApp1.ViewModel
         public MainViewModel()
         {
             Konutlar = new List<Konut>();
-            //Konutlar.Add(new Daire() { Alan = 100, Fiyat = 500, Asansor = Ozellik.Var, Balkon = Ozellik.Var, Kat = 4, Favori = true });
-            //Konutlar.Add(new Villa() { Alan = 200, Fiyat = 250, BahceAlani = 200, Garaj = Ozellik.Yok, VillaTipi = VillaTipi.Dublex, Favori = false });
-            //Konutlar.Add(new Daire() { Alan = 600, Fiyat = 900, Asansor = Ozellik.Yok, Balkon = Ozellik.Var, Kat = 3, Favori = true });
-            //Konutlar.Add(new Villa() { Alan = 700, Fiyat = 400, BahceAlani = 250, Garaj = Ozellik.Var, VillaTipi = VillaTipi.Triplex, Favori = true });
+            AddKonut(new Daire() { Alan = 100, Fiyat = 500, Asansor = Ozellik.Var, Balkon = Ozellik.Var, Kat = 4, Favori = true });
+            AddKonut(new Villa() { Alan = 200, Fiyat = 250, BahceAlani = 200, Garaj = Ozellik.Yok, VillaTipi = VillaTipi.Dublex, Favori = false });
+            AddKonut(new Daire() { Alan = 600, Fiyat = 900, Asansor = Ozellik.Yok, Balkon = Ozellik.Var, Kat = 3, Favori = true });
+            AddKonut(new Villa() { Alan = 700, Fiyat = 400, BahceAlani = 250, Garaj = Ozellik.Var, VillaTipi = VillaTipi.Triplex, Favori = true });
 
             listeSayfasi = new ListeViewModel(this);
-            //detaySayfasi = new DetayViewModel(this);
+            detaySayfasi = new DetayViewModel(this);
             CurrentViewModel = listeSayfasi;
 
             //WriteXML();
@@ -82,7 +82,7 @@ namespace WpfApp1.ViewModel
 
         public void DetaySayfaAcma()
         {
-            CurrentViewModel = new DetayViewModel(this);
+            CurrentViewModel = detaySayfasi;
         }
 
         public void ListeSayfasiAcma()
@@ -90,14 +90,43 @@ namespace WpfApp1.ViewModel
             CurrentViewModel = listeSayfasi;
         }
 
+        private void AddKonut(Konut konut)
+        {
+            konut.FavoriChanged += Konut_FavoriChanged;
+
+            Konutlar.Add(konut);
+        }
+        private void ClearKonutlar()
+        {
+            foreach (var konut in Konutlar)
+            {
+                konut.FavoriChanged -= Konut_FavoriChanged;
+            }
+
+            SeciliKonut = null;
+
+            Konutlar.Clear();
+        }
+
+        private void Konut_FavoriChanged()
+        {
+            WriteXML();
+        }
+
         private void ReadXML()
         {
             if (File.Exists(FilePath))
             {
-                using (var file = GetFileStream())
+                ClearKonutlar();
+
+                using (var file = File.Open(FilePath, FileMode.Open, FileAccess.Read, FileShare.Read))
                 {
                     var serializer = new XmlSerializer(typeof(List<Konut>), types);
-                    Konutlar = serializer.Deserialize(file) as List<Konut>;
+                    var konutlar = serializer.Deserialize(file) as List<Konut>;
+                    foreach (var konut in konutlar)
+                    {
+                        AddKonut(konut);
+                    }
                 }
             }
             else
@@ -108,7 +137,7 @@ namespace WpfApp1.ViewModel
 
         public void WriteXML()
         {
-            using (var file = GetFileStream())
+            using (var file = File.Open(FilePath, FileMode.Create))
             {
                 var serializer = new XmlSerializer(typeof(List<Konut>), types);
                 serializer.Serialize(file, Konutlar);

@@ -28,15 +28,20 @@ namespace WpfApp1.ViewModel
         public DetayViewModel(MainViewModel mainViewModel)
         {
             this.mainViewModel = mainViewModel;
+            mainViewModel.PropertyChanged += MainViewModel_PropertyChanged;
 
             listeGoster = new ListeGosterCommand(mainViewModel);
             DetayDegistir = new DetayDegistirCommand(mainViewModel);
         }
 
-        public MainViewModel MainViewModel
+        private void MainViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            get { return mainViewModel; }
+            if (e.PropertyName.Equals(nameof(MainViewModel.SeciliKonut)))
+            {
+                OnPropertyChanged(nameof(SeciliKonut));
+            }
         }
+
 
         public ICommand ListeGoster
         {

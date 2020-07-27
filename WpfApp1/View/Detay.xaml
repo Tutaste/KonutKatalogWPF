@@ -13,77 +13,85 @@
 
         <Label Content="Detaylı Konut Bilgisi" Style="{StaticResource labelStyle}" HorizontalAlignment="Center"></Label>
 
-        <ContentControl Content="{Binding Path=MainViewModel.SeciliKonut}">
+        <ContentControl Content="{Binding Path=SeciliKonut}">
             <ContentControl.Resources>
                 <DataTemplate DataType="{x:Type model:Daire}">
-                    <Grid Width="300" HorizontalAlignment="Center">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="150" />
-                            <ColumnDefinition Width="150"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
+                            <Image Source="/Images/apartman4.jpg" Stretch="Uniform" Width="100"/>
+                            <Label Style="{StaticResource labelStyleTwo}" Width="180" Content="Daire" HorizontalContentAlignment="Center"/>
+                        </StackPanel>
 
-                        <TextBlock Grid.Column="0" Grid.Row="0" Style="{StaticResource textBlockStyle}" Text="Alan: "/>
-                        <TextBlock Grid.Column="0" Grid.Row="1" Style="{StaticResource textBlockStyle}" Text="Fiyat: "/>
-                        <TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource textBlockStyle}" Text="Kat: "/>
-                        <TextBlock Grid.Column="0" Grid.Row="3" Style="{StaticResource textBlockStyle}" Text="Balkon: "/>
-                        <TextBlock Grid.Column="0" Grid.Row="4" Style="{StaticResource textBlockStyle}" Text="Asansör: "/>
-                        <TextBlock Grid.Column="0" Grid.Row="5" Style="{StaticResource textBlockStyle}" Text="Favori: "/>
+                        <Grid Width="300" HorizontalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150" />
+                                <ColumnDefinition Width="150"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
 
-                        <TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource textBlockStyle}" Text="{Binding Path=Alan, StringFormat='{}{0} m&#x00B2;' }"/>
-                        <TextBlock Grid.Column="1" Grid.Row="1" Style="{StaticResource textBlockStyle}" Text="{Binding Path=Fiyat, StringFormat='{}{0} ₺' }"/>
-                        <TextBlock Grid.Column="1" Grid.Row="2" Style="{StaticResource textBlockStyle}" Text="{Binding Path=Kat}"/>
-                        <TextBlock Grid.Column="1" Grid.Row="3" Style="{StaticResource textBlockStyle}" Text="{Binding Path=Balkon}"/>
-                        <TextBlock Grid.Column="1" Grid.Row="4" Style="{StaticResource textBlockStyle}" Text="{Binding Path=Asansor}"/>
-                        <CheckBox Grid.Column="1" Grid.Row="5" IsChecked="{Binding Path=Favori}"/>
+                            <TextBlock Grid.Column="0" Grid.Row="0" Style="{StaticResource textBlockStyle}" Text="Alan: "/>
+                            <TextBlock Grid.Column="0" Grid.Row="1" Style="{StaticResource textBlockStyle}" Text="Fiyat: "/>
+                            <TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource textBlockStyle}" Text="Kat: "/>
+                            <TextBlock Grid.Column="0" Grid.Row="3" Style="{StaticResource textBlockStyle}" Text="Balkon: "/>
+                            <TextBlock Grid.Column="0" Grid.Row="4" Style="{StaticResource textBlockStyle}" Text="Asansör: "/>
+                            <TextBlock Grid.Column="0" Grid.Row="5" Style="{StaticResource textBlockStyle}" Text="Favori: "/>
 
-                    </Grid>
-                    <!--<StackPanel>
-                        <TextBlock Style="{StaticResource textBlockStyle}" Text="{Binding Path=Alan, StringFormat='Alanı: {0}' }"/>
-                        <TextBlock Text="{Binding Path=Fiyat, StringFormat='Fiyatı: {0}' }"/>
-                        <TextBlock Text="{Binding Path=Kat, StringFormat='Bulunduğu kat: {0}' }"/>
-                        <TextBlock Text="{Binding Path=Balkon, StringFormat='Balkon: {0}' }"/>
-                        <TextBlock Text="{Binding Path=Asansor, StringFormat='Asansör: {0}' }"/>
-                        <CheckBox Content="Favori" IsChecked="{Binding Path=Favori}"/>
-                    </StackPanel>-->
+                            <TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource textBlockStyle}" Text="{Binding Path=Alan, StringFormat='{}{0} m&#x00B2;' }"/>
+                            <TextBlock Grid.Column="1" Grid.Row="1" Style="{StaticResource textBlockStyle}" Text="{Binding Path=Fiyat, StringFormat='{}{0} ₺' }"/>
+                            <TextBlock Grid.Column="1" Grid.Row="2" Style="{StaticResource textBlockStyle}" Text="{Binding Path=Kat}"/>
+                            <TextBlock Grid.Column="1" Grid.Row="3" Style="{StaticResource textBlockStyle}" Text="{Binding Path=Balkon}"/>
+                            <TextBlock Grid.Column="1" Grid.Row="4" Style="{StaticResource textBlockStyle}" Text="{Binding Path=Asansor}"/>
+                            <CheckBox Style="{StaticResource CustomCheckBox}" Grid.Column="1" Grid.Row="5" IsChecked="{Binding Path=Favori}"/>
+
+                        </Grid>
+                    </StackPanel>
                 </DataTemplate>
+
                 <DataTemplate DataType="{x:Type model:Villa}">
-                    <Grid Width="300" HorizontalAlignment="Center">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="150" />
-                            <ColumnDefinition Width="150"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
+                    <StackPanel Orientation="Vertical">
 
-                        <TextBlock Grid.Column="0" Grid.Row="0" Style="{StaticResource textBlockStyle}" Text="Alan: "/>
-                        <TextBlock Grid.Column="0" Grid.Row="1" Style="{StaticResource textBlockStyle}" Text="Fiyat: "/>
-                        <TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource textBlockStyle}" Text="Bahce Alan: "/>
-                        <TextBlock Grid.Column="0" Grid.Row="3" Style="{StaticResource textBlockStyle}" Text="Garaj: "/>
-                        <TextBlock Grid.Column="0" Grid.Row="4" Style="{StaticResource textBlockStyle}" Text="Villa Tipi: "/>
-                        <TextBlock Grid.Column="0" Grid.Row="5" Style="{StaticResource textBlockStyle}" Text="Favori: "/>
+                        <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
+                            <Image Source="/Images/villa.png" Stretch="Uniform" Width="100"/>
+                            <Label Style="{StaticResource labelStyleTwo}" Width="180" Content="Villa" HorizontalContentAlignment="Center"/>
+                        </StackPanel>
+                        <Grid Width="300" HorizontalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150" />
+                                <ColumnDefinition Width="150"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
 
-                        <TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource textBlockStyle}" Text="{Binding Path=Alan, StringFormat='{}{0} m&#x00B2;' }"/>
-                        <TextBlock Grid.Column="1" Grid.Row="1" Style="{StaticResource textBlockStyle}" Text="{Binding Path=Fiyat, StringFormat='{}{0} ₺' }"/>
-                        <TextBlock Grid.Column="1" Grid.Row="2" Style="{StaticResource textBlockStyle}" Text="{Binding Path=BahceAlani}"/>
-                        <TextBlock Grid.Column="1" Grid.Row="3" Style="{StaticResource textBlockStyle}" Text="{Binding Path=Garaj}"/>
-                        <TextBlock Grid.Column="1" Grid.Row="4" Style="{StaticResource textBlockStyle}" Text="{Binding Path=VillaTipi}"/>
-                        <CheckBox Grid.Column="1" Grid.Row="5" IsChecked="{Binding Path=Favori}"/>
+                            <TextBlock Grid.Column="0" Grid.Row="0" Style="{StaticResource textBlockStyle}" Text="Alan: "/>
+                            <TextBlock Grid.Column="0" Grid.Row="1" Style="{StaticResource textBlockStyle}" Text="Fiyat: "/>
+                            <TextBlock Grid.Column="0" Grid.Row="2" Style="{StaticResource textBlockStyle}" Text="Bahce Alan: "/>
+                            <TextBlock Grid.Column="0" Grid.Row="3" Style="{StaticResource textBlockStyle}" Text="Garaj: "/>
+                            <TextBlock Grid.Column="0" Grid.Row="4" Style="{StaticResource textBlockStyle}" Text="Villa Tipi: "/>
+                            <TextBlock Grid.Column="0" Grid.Row="5" Style="{StaticResource textBlockStyle}" Text="Favori: "/>
 
-                    </Grid>
+                            <TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource textBlockStyle}" Text="{Binding Path=Alan, StringFormat='{}{0} m&#x00B2;' }"/>
+                            <TextBlock Grid.Column="1" Grid.Row="1" Style="{StaticResource textBlockStyle}" Text="{Binding Path=Fiyat, StringFormat='{}{0} ₺' }"/>
+                            <TextBlock Grid.Column="1" Grid.Row="2" Style="{StaticResource textBlockStyle}" Text="{Binding Path=BahceAlani}"/>
+                            <TextBlock Grid.Column="1" Grid.Row="3" Style="{StaticResource textBlockStyle}" Text="{Binding Path=Garaj}"/>
+                            <TextBlock Grid.Column="1" Grid.Row="4" Style="{StaticResource textBlockStyle}" Text="{Binding Path=VillaTipi}"/>
+                            <CheckBox Style="{StaticResource CustomCheckBox}" Grid.Column="1" Grid.Row="5" IsChecked="{Binding Path=Favori}"/>
+
+                        </Grid>
+                    </StackPanel>
+
                     <!--<StackPanel>
                         <TextBlock Text="{Binding Path=Alan, StringFormat='Alanı: {0}' }"/>
                         <TextBlock Text="{Binding Path=Fiyat, StringFormat='Fiyatı: {0}' }"/>
@@ -99,11 +107,11 @@
         </ContentControl>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
-            <Button Style="{StaticResource BackButtonStyle}" Command="{Binding Path=DetayDegistir}" CommandParameter="-1">Geri</Button>
+            <Button Style="{StaticResource LeftButton}" Command="{Binding Path=DetayDegistir}" CommandParameter="-1">Geri</Button>
             <Button Style="{StaticResource BackButtonStyle}" Command="{Binding Path=ListeGoster}">Liste Sayfasına Git</Button>
-            <Button Style="{StaticResource BackButtonStyle}" Command="{Binding Path=DetayDegistir}" CommandParameter="1">İleri</Button>
+            <Button Style="{StaticResource RigthButton}" Command="{Binding Path=DetayDegistir}" CommandParameter="1">İleri</Button>
         </StackPanel>
-        
+
 
     </StackPanel>
 </UserControl>

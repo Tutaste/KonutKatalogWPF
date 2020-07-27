@@ -122,5 +122,11 @@
       <Name>KonutModelLib</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\villa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\apartman4.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

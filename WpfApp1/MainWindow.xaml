@@ -19,6 +19,6 @@
     </Window.Resources>
 
     <StackPanel>
-        <ContentControl Content="{Binding Path=CurrentViewModel}"/>
+        <ContentControl x:Name="content" Content="{Binding Path=CurrentViewModel}"/>
     </StackPanel>
 </Window>
